@@ -3,13 +3,13 @@
 </script>
 
 <template>
-  <main>
-    <h1>Sign up to view products</h1>
-  </main>
+    <main>
+        <h1>Not Found</h1>
+    </main>
 </template>
 
 <style scoped>
 h1 {
-  text-align: center;
+    text-align: center;
 }
 </style>
