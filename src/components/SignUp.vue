@@ -55,6 +55,7 @@ form button {
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: rgb(107, 244, 107);
+    color: white;
+    background-color: #fd5b5b;
 }
 </style>

@@ -1,15 +1,18 @@
 <script setup >
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 var products = ref([]);
 
+const fetchProducts = () => {
+    fetch("https://dummyjson.com/products")
+        .then((res) => res.json())
+        .then((data) => products.value = data.products)
+};
 
-fetch("https://dummyjson.com/products")
-    .then((res) => res.json())
-    .then((data) => products.value = data.products)
+onMounted(() => {
+    fetchProducts();
+});
 
-
-// console.log(result.value)
 </script>
 
 <template>
@@ -26,6 +29,7 @@ fetch("https://dummyjson.com/products")
 
 <style scoped>
 main {
+    background-color: #b8b7b700;
     margin: 0px 60px;
 }
 
@@ -47,8 +51,14 @@ main img {
     text-align: left;
 }
 
+.product:hover {
+    box-shadow: 2px 4px 24px -9px rgba(0, 0, 0, 0.33);
+    -webkit-box-shadow: 2px 4px 24px -9px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 2px 4px 24px -9px rgba(0, 0, 0, 0.33);
+}
+
 .discount {
-    background-color: rgb(253, 91, 91);
+    background-color: #fd5b5b;
     color: white;
     border-radius: 5px;
     padding: 2px;

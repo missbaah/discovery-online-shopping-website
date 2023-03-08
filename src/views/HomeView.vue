@@ -1,15 +1,11 @@
 <script setup>
-
+import HomeItems from '../components/HomeItems.vue';
 </script>
 
 <template>
   <main>
-    <h1>Sign up to view products</h1>
+    <HomeItems />
   </main>
 </template>
 
-<style scoped>
-h1 {
-  text-align: center;
-}
-</style>
+<style scoped></style>
