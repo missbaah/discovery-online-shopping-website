@@ -1,9 +1,9 @@
 <script setup>
-
+import ProductItems from '../components/ProductItems.vue';
 </script>
 
 <template>
     <main>
-        <h2>Products Page</h2>
+        <ProductItems />
     </main>
 </template>

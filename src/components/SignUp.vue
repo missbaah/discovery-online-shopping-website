@@ -1,4 +1,4 @@
-<script setup>
+<script setup >
 import { ref } from 'vue';
 var password = ref(password);
 var confirmPassword = ref(confirmPassword)
