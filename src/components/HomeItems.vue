@@ -8,7 +8,7 @@
             <p>Discover a wide range of items for your everyday needs at affordable prices!</p>
             <p>Sign up if you are new to view items at unbeatable prices</p>
         </div>
-        <div>
+        <div class="div-buttons">
             <button @click="$router.push({ name: 'signup' })">Sign Up</button>
             <button @click="$router.push({ name: 'login' })">Login</button>
         </div>
@@ -17,10 +17,10 @@
 
 <style scoped>
 main {
-    min-height: 300px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     align-items: center;
     justify-content: center;
 }
@@ -38,5 +38,20 @@ h1 span {
 p {
     font-size: 16px;
     text-align: center;
+}
+
+.div-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 50px;
+}
+
+button {
+    background-color: #72d872;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 200px;
+    border: none;
 }
 </style>

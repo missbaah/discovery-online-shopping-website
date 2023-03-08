@@ -51,11 +51,11 @@ form input {
 }
 
 form button {
+    font-size: 16px;
     width: 300px;
     padding: 10px;
     border-radius: 5px;
     border: none;
-    color: white;
-    background-color: #fd5b5b;
+    background-color: #72d872;
 }
 </style>
