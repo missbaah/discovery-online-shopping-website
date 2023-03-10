@@ -22,7 +22,15 @@ const router = createRouter({
     {
       path: '/products',
       name: 'products',
-      component: () => import('../views/ProductsView.vue')
+      component: () => import('../views/ProductsView.vue'),
+      meta: {
+        authIsRequired: true
+      }
+    },
+    {
+      path: '/products/:id',
+      name: 'product',
+      component: () => import('../views/ProductPage.vue')
     },
     {
       path: '/:pathMatch(.*)*',
@@ -30,6 +38,16 @@ const router = createRouter({
       component: () => import('../views/NotFound.vue')
     }
   ]
+})
+
+const isAuthenticated = false
+
+router.beforeEach(async (to) => {
+  if (!isAuthenticated && to.meta.authIsRequired && to.name !== 'login') {
+    return {
+      name: 'login'
+    }
+  }
 })
 
 export default router

@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue';
+const email = ref("");
+const password = ref("");
 
 </script>
 
@@ -6,9 +9,9 @@
     <main>
         <h1>Login Page</h1>
         <form action="">
-            <input type="email" placeholder="name@email.com">
-            <input type="password" placeholder="Password">
-            <button>Login</button>
+            <input type="email" placeholder="name@email.com" v-model="email">
+            <input type="password" placeholder="Password" v-model="password">
+            <button :disabled="!email || !password">Login</button>
         </form>
     </main>
 </template>

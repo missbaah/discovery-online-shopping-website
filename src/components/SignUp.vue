@@ -12,6 +12,8 @@ function validatePassword() {
     this.errorMessage = '';
     return true;
 }
+
+
 </script>
 
 <template>

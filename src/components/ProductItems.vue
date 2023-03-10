@@ -19,10 +19,11 @@ onMounted(() => {
     <main class="grid-container">
         <div class="product" v-for="product in products" :key="product.id">
             <p class="discount">{{ product.discountPercentage }}% OFF</p>
-            <img src="https://i.dummyjson.com/data/products/1/3.jpg" />
+            <img src={{product.thumbnail}} />
             <h3>{{ product.title }}</h3>
             <p>${{ product.price }}</p>
             <p>Rating {{ product.rating }}</p>
+            <button @click="$router.push(`/products/${product.id}`)">View More</button>
         </div>
     </main>
 </template>
