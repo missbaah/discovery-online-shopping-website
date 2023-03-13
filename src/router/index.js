@@ -42,10 +42,26 @@ const router = createRouter({
 
 const isAuthenticated = () => !!localStorage.getItem('token')
 
+const canUserAccess = (to) => {
+  if (!isAuthenticated() && to.meta.authIsRequired && to.name !== 'Login') {
+    return false
+  }
+
+  return true
+}
+
 router.beforeEach(async (to) => {
-  if (!isAuthenticated() && to.meta.authIsRequired && to.name !== 'login') {
+  const canAccess = await canUserAccess(to)
+
+  if (isAuthenticated() && to.name === 'Login') {
     return {
-      name: 'login'
+      name: 'Home'
+    }
+  }
+
+  if (!canAccess) {
+    return {
+      name: 'Login'
     }
   }
 })

@@ -1,6 +1,18 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  router.push("/login");
+};
+
+const isAuthenticated = computed(() => !!localStorage.getItem("token"));
 </script>
+
 
 <template>
   <header>
@@ -11,11 +23,13 @@ import { RouterLink, RouterView } from 'vue-router'
         <span>Account</span>
         <div class="drop-down-content">
           <RouterLink to="/signup">Sign Up</RouterLink>
-          <RouterLink to="/login">Login</RouterLink>
+          <RouterLink to="/login" v-if="!isAuthenticated">Login</RouterLink>
         </div>
       </section>
       <RouterLink to="/products">Products</RouterLink>
+      <button @click="handleLogout">Logout</button>
     </nav>
+
   </header>
   <RouterView />
 </template>
