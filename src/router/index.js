@@ -40,12 +40,12 @@ const router = createRouter({
   ]
 })
 
-const isAuthenticated = false
+const isAuthenticated = () => !!localStorage.getItem('token')
 
 router.beforeEach(async (to) => {
-  if (!isAuthenticated && to.meta.authIsRequired && to.name !== 'login') {
+  if (!isAuthenticated() && to.meta.authIsRequired && to.name !== 'login') {
     return {
-      name: 'product'
+      name: 'login'
     }
   }
 })

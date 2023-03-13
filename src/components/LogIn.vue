@@ -16,6 +16,7 @@ const errmgs = ref("")
 
 function validateForm() {
     if (storeEmail.value === email.value && storePassword.value === password.value) {
+        localStorage.setItem("token", "successful")
         console.log("login successful")
         router.push({ name: "products" })
     } else {
