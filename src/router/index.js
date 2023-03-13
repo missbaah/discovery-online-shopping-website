@@ -45,7 +45,7 @@ const isAuthenticated = false
 router.beforeEach(async (to) => {
   if (!isAuthenticated && to.meta.authIsRequired && to.name !== 'login') {
     return {
-      name: 'login'
+      name: 'product'
     }
   }
 })

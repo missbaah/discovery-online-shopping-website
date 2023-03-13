@@ -1,18 +1,44 @@
 <script setup>
-import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const store = useStore()
+
+const storeEmail = computed(() => store.state.email)
+const storePassword = computed(() => store.state.password)
+
 const email = ref("");
 const password = ref("");
+const errmgs = ref("")
+
+function validateForm() {
+    if (storeEmail.value === email.value && storePassword.value === password.value) {
+        console.log("login successful")
+        router.push({ name: "products" })
+    } else {
+        errmgs.value = "Login details not correct"
+    }
+
+}
+
+
+
+
 
 </script>
 
 <template>
     <main>
         <h1>Login Page</h1>
-        <form action="">
+        <form @submit.prevent="validateForm">
             <input type="email" placeholder="name@email.com" v-model="email">
             <input type="password" placeholder="Password" v-model="password">
             <button :disabled="!email || !password">Login</button>
         </form>
+        <p class="error">{{ errmgs }}</p>
     </main>
 </template>
 
@@ -44,5 +70,12 @@ form button {
     border-radius: 5px;
     border: none;
     background-color: #72d872;
+}
+
+.error {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    color: red;
 }
 </style>

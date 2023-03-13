@@ -1,15 +1,37 @@
 <script setup >
-import { ref } from 'vue';
-var password = ref(password);
-var confirmPassword = ref(confirmPassword)
+import { useStore } from 'vuex';
+import { ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const store = useStore();
+const name = ref("")
+const email = ref("")
+var password = ref("")
+var confirmPassword = ref("")
 const errorMessage = ref("")
+
+const form = reactive({
+    name, email, password, confirmPassword
+
+})
+
+function submitdetails() {
+    store.commit("details", form)
+    name.value = ""
+    email.value = ""
+    password.value = ""
+    confirmPassword.value = ""
+    router.push({ name: "login" })
+}
 
 function validatePassword() {
     if (password.value !== confirmPassword.value) {
         errorMessage.value = "Passwords do not match";
         return true
     }
-    this.errorMessage = '';
+    errorMessage.value = '';
     return true;
 }
 
@@ -19,14 +41,14 @@ function validatePassword() {
 <template>
     <main>
         <h1>Sign up here</h1>
-        <form>
-            <input type="name" placeholder="Jane Doe">
-            <input type="email" placeholder="name@email.com">
+        <form @submit.prevent="submitdetails">
+            <input type="name" placeholder="Jane Doe" v-model="name">
+            <input type="email" placeholder="name@email.com" v-model="email">
             <input type="password" placeholder="Password" v-model="password">
             <input type="password" placeholder="Confirm password" v-model="confirmPassword" @input="validatePassword
             ">
             <p v-if="errorMessage" style="color:red">{{ errorMessage }}</p>
-            <button>Sign Up</button>
+            <button type="submit" :disabled="!name || !email || !password || !confirmPassword">Sign Up</button>
         </form>
     </main>
 </template>
