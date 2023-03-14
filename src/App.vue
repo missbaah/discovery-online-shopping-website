@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { computed } from "vue";
+// import { computed } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -10,7 +10,7 @@ const handleLogout = () => {
   router.push("/login");
 };
 
-const isAuthenticated = computed(() => !!localStorage.getItem("token"));
+
 </script>
 
 
@@ -18,15 +18,14 @@ const isAuthenticated = computed(() => !!localStorage.getItem("token"));
   <header>
     <nav>
       <RouterLink to="/" class="logo">Discovery</RouterLink>
-      <RouterLink to="/">Home </RouterLink>
+      <RouterLink to="/" class="nav-link">Home </RouterLink>
       <section class="drop-down-menu">
         <span>Account</span>
         <div class="drop-down-content">
-          <RouterLink to="/signup">Sign Up</RouterLink>
-          <RouterLink to="/login" v-if="!isAuthenticated">Login</RouterLink>
+          <RouterLink to="/signup" class="nav-link">Sign Up</RouterLink>
         </div>
       </section>
-      <RouterLink to="/products">Products</RouterLink>
+      <RouterLink to="/products" class="nav-link">Products</RouterLink>
       <button @click="handleLogout">Logout</button>
     </nav>
 
@@ -41,6 +40,11 @@ const isAuthenticated = computed(() => !!localStorage.getItem("token"));
     gap: 50px;
     padding: 50px 0px;
     justify-content: center;
+  }
+
+  .nav-link:active {
+    border-bottom: 5px solid greenyellow;
+    margin-bottom: 0px;
   }
 
 

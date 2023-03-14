@@ -1,4 +1,6 @@
 <script setup >
+import { computed } from 'vue';
+const isAuthenticated = computed(() => !!localStorage.getItem("token"));
 </script>
 
 <template>
@@ -10,7 +12,8 @@
         </div>
         <div class="div-buttons">
             <button @click="$router.push({ name: 'signup' })">Sign Up</button>
-            <button @click="$router.push({ name: 'login' })">Login</button>
+            <button @click="$router.push({ name: 'login' })" v-if="!isAuthenticated">Login</button>
+            <button @click="$router.push({ name: 'products' })" v-else>Products</button>
         </div>
     </main>
 </template>
