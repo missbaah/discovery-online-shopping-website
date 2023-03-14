@@ -1,13 +1,17 @@
 <script setup >
+import LoadingCom from "../components/LoadingCom.vue"
 import { ref, onMounted } from 'vue';
 
 var products = ref([]);
+var loading = ref(true)
 
 const fetchProducts = () => {
     fetch("https://dummyjson.com/products")
         .then((res) => res.json())
         .then((data) => products.value = data.products)
+        .finally(() => (loading.value = false))
 };
+
 
 onMounted(() => {
     fetchProducts();
@@ -17,9 +21,12 @@ onMounted(() => {
 
 <template>
     <main class="grid-container">
-        <div class="product" v-for="product in products" :key="product.id">
+        <div class="loading" v-if="loading">
+            <LoadingCom />
+        </div>
+        <div v-else class="product" v-for="product in products" :key="product.id">
             <p class="discount">{{ product.discountPercentage }}% OFF</p>
-            <img src={{product.thumbnail}} />
+            <img src={{product.thumbnail}} alt="thumbnail" />
             <h3>{{ product.title }}</h3>
             <p>${{ product.price }}</p>
             <p>Rating {{ product.rating }}</p>
@@ -65,8 +72,12 @@ main img {
     padding: 2px;
     width: 100px;
     position: absolute;
-    top: -110%;
-    left: -1%;
+    top: -125%;
+    left: -3%;
     text-align: center;
 }
+
+/* .loading {
+    margin: 50px 100px;
+} */
 </style>
