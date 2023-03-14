@@ -14,8 +14,8 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vh;
-    height: 100vh;
+    width: 1000px;
+    height: 400px;
 }
 
 @keyframes rotate {
@@ -42,7 +42,6 @@ section {
 .load {
     width: 100px;
     height: 100px;
-
     border: solid 10px #72d872;
     border-radius: 50%;
     border-right-color: transparent;

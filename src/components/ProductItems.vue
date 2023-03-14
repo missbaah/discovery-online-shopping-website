@@ -1,4 +1,4 @@
-<script setup >
+<script setup>
 import LoadingCom from "../components/LoadingCom.vue"
 import { ref, onMounted } from 'vue';
 
