@@ -50,6 +50,8 @@ function validatePassword() {
             <p v-if="errorMessage" style="color:red">{{ errorMessage }}</p>
             <button type="submit" :disabled="!name || !email || !password || !confirmPassword">Sign Up</button>
         </form>
+        <p class="mgs">Already have an account? Login <RouterLink to="/login">here</RouterLink>
+        </p>
     </main>
 </template>
 
@@ -81,5 +83,16 @@ form button {
     border-radius: 5px;
     border: none;
     background-color: #72d872;
+}
+
+.mgs {
+    text-align: center;
+    margin: 20px;
+    font-size: 12px;
+    color: rgb(171, 102, 235);
+}
+
+.mgs a {
+    color: rgb(171, 102, 235);
 }
 </style>

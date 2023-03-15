@@ -39,6 +39,8 @@ function validateForm() {
             <input type="password" placeholder="Password" v-model="password">
             <button :disabled="!email || !password">Login</button>
         </form>
+        <p class="mgs">Don't have an account? Sign up <RouterLink to="/signup">here</RouterLink>
+        </p>
         <p class="error">{{ errmgs }}</p>
     </main>
 </template>
@@ -78,5 +80,16 @@ form button {
     margin: 10px;
     text-align: center;
     color: red;
+}
+
+.mgs {
+    text-align: center;
+    margin: 20px;
+    font-size: 12px;
+    color: rgb(171, 102, 235);
+}
+
+.mgs a {
+    color: rgb(171, 102, 235);
 }
 </style>
