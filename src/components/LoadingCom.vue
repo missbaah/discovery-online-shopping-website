@@ -14,8 +14,8 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1000px;
-    height: 400px;
+    width: 100vw;
+    height: 100vh;
 }
 
 @keyframes rotate {

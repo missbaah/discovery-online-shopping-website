@@ -70,7 +70,7 @@ main {
 img {
     width: 300px;
     height: 300px;
-    margin: 0px 2%;
+    margin: 0px 1%;
 }
 
 
@@ -105,9 +105,10 @@ h3 {
     padding: 2px;
     width: 100px;
     position: absolute;
-    top: -110%;
+    top: -2%;
     left: -3%;
     text-align: center;
+    z-index: 3;
 }
 
 .pagination {

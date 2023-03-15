@@ -36,6 +36,8 @@ onMounted(() => {
             <p class="rate"> {{ product.rating }}⭐</p>
             <p class="stock">{{ product.stock }} left</p>
             <p><span>category</span> {{ product.category }} </p>
+            <p class="mgs">Back to <RouterLink to="/products">Products</RouterLink>
+            </p>
         </div>
     </section>
 </template>
@@ -44,10 +46,12 @@ onMounted(() => {
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 80px;
-    padding: 50px;
+    width: 70%;
+    margin: 50px auto;
+    padding: 20px;
     border: 1px solid black;
     border-radius: 50px;
+
 }
 
 img {
@@ -91,5 +95,16 @@ span {
     padding: 8px;
     border-radius: 15px;
     text-transform: capitalize;
+}
+
+.mgs {
+    margin: 20px;
+    font-size: 14px;
+    color: rgb(171, 102, 235);
+}
+
+.mgs a {
+    color: rgb(171, 102, 235);
+    text-decoration: none;
 }
 </style>
