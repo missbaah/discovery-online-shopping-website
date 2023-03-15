@@ -29,11 +29,11 @@ onMounted(() => {
         <LoadingCom />
     </section>
     <section v-else class="grid-container">
-        <img src={{product.image[0]}} />
+        <img :src="product.images[0]" alt="product" />
         <div class="item2">
             <h3>{{ product.title }}</h3>
             <p class="description">{{ product.description }}</p>
-            <p class="rate"> ⭐ {{ product.rating }}</p>
+            <p class="rate"> {{ product.rating }}⭐</p>
             <p class="stock">{{ product.stock }} left</p>
             <p><span>category</span> {{ product.category }} </p>
         </div>
@@ -48,6 +48,11 @@ onMounted(() => {
     padding: 50px;
     border: 1px solid black;
     border-radius: 50px;
+}
+
+img {
+    width: 250px;
+    height: 250px;
 }
 
 .item2 {
