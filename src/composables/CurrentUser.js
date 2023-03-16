@@ -1,5 +1,5 @@
-import { computed } from 'Vue'
-import { useStore } from 'Vuex'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 
 export default function useCurrentUser() {
   const store = useStore()
