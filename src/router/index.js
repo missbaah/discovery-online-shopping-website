@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import DiscoveryOnline from '../views/DiscoveryOnline.vue'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -6,8 +7,28 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'discovery',
+      component: DiscoveryOnline,
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component: HomeView
+        },
+        {
+          path: '/products',
+          name: 'products',
+          component: () => import('../views/ProductsView.vue'),
+          meta: {
+            authIsRequired: true
+          }
+        },
+        {
+          path: '/products/:id',
+          name: 'product',
+          component: () => import('../views/ProductPage.vue')
+        }
+      ]
     },
     {
       path: '/signup',
@@ -19,19 +40,7 @@ const router = createRouter({
       name: 'login',
       component: () => import('../views/LoginView.vue')
     },
-    {
-      path: '/products',
-      name: 'products',
-      component: () => import('../views/ProductsView.vue'),
-      meta: {
-        authIsRequired: true
-      }
-    },
-    {
-      path: '/products/:id',
-      name: 'product',
-      component: () => import('../views/ProductPage.vue')
-    },
+
     {
       path: '/:pathMatch(.*)*',
       name: 'notfound',

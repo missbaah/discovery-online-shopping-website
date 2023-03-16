@@ -28,7 +28,6 @@ const handleLogout = () => {
       <RouterLink to="/products" class="nav-link">Products</RouterLink>
       <button @click="handleLogout">Logout</button>
     </nav>
-
   </header>
   <RouterView />
 </template>
