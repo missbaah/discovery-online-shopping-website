@@ -92,4 +92,10 @@ form button {
 .mgs a {
     color: rgb(171, 102, 235);
 }
+
+@media only screen and (max-width: 768px) {
+    main {
+        margin-top: 100px;
+    }
+}
 </style>

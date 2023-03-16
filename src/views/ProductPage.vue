@@ -67,7 +67,7 @@ h3 {
     font-weight: 900;
     font-size: 24px;
     text-transform: capitalize;
-
+    padding: 5px;
 }
 
 p {
@@ -106,5 +106,19 @@ span {
 .mgs a {
     color: rgb(171, 102, 235);
     text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .stock {
+        width: 90%;
+    }
+
 }
 </style>

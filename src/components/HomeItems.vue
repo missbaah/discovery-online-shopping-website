@@ -57,4 +57,30 @@ button {
     width: 200px;
     border: none;
 }
+
+@media only screen and (max-width: 768px) {
+    main {
+        gap: 35px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 38px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .div-buttons {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
 </style>

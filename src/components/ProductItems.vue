@@ -43,7 +43,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <h2>Welcome {{ currentUser }}</h2>
+    <h2>Welcome {{ currentUser }} 🎉🎉🎉 </h2>
     <main class="grid-container">
         <div class="loading" v-if="loading">
             <LoadingCom />
@@ -54,7 +54,7 @@ onMounted(() => {
             <img :src='product.thumbnail' alt="thumbnail" />
             <h3>{{ product.title }}</h3>
             <p>${{ product.price }}</p>
-            <p>Rating {{ product.rating }}</p>
+            <p>Rating: {{ product.rating }} ⭐</p>
             <button @click="$router.push(`/products/${product.id}`)">View More</button>
         </div>
     </main>
@@ -82,6 +82,8 @@ h2 {
     margin-bottom: 30px;
     text-transform: capitalize;
     text-align: center;
+    color: rgb(16, 92, 69);
+    font-weight: 700;
 }
 
 h3 {
@@ -151,5 +153,30 @@ h3 {
 .pagination span {
     font-size: 1.2rem;
     margin: 0 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .product {
+        padding: 10px;
+        border: 1px solid rgb(236, 234, 234);
+        border-radius: 10px;
+        text-align: left;
+    }
+
 }
 </style>
