@@ -1,6 +1,9 @@
 <script setup>
+import useCurrentUser from "../composables/CurrentUser";
 import LoadingCom from "../components/LoadingCom.vue"
 import { ref, onMounted, computed } from 'vue';
+
+const { currentUser } = useCurrentUser();
 
 var products = ref([]);
 var loading = ref(true);
@@ -40,11 +43,13 @@ onMounted(() => {
 </script>
 
 <template>
+    <h2>Welcome {{ currentUser }}</h2>
     <main class="grid-container">
         <div class="loading" v-if="loading">
             <LoadingCom />
         </div>
         <div v-else class="product" v-for="product in paginateProducts" :key="product.id">
+
             <p class="discount">{{ product.discountPercentage }}% OFF</p>
             <img :src='product.thumbnail' alt="thumbnail" />
             <h3>{{ product.title }}</h3>
@@ -73,6 +78,11 @@ img {
     margin: 0px 1%;
 }
 
+h2 {
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    text-align: center;
+}
 
 h3 {
     text-transform: capitalize;

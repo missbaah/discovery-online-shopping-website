@@ -8,6 +8,9 @@ const router = useRouter();
 const handleLogout = () => {
   localStorage.removeItem("token");
   router.push("/login");
+
+
+
 };
 
 
@@ -29,6 +32,7 @@ const handleLogout = () => {
       <button @click="handleLogout">Logout</button>
     </nav>
   </header>
+
   <RouterView />
 </template>
 
