@@ -101,5 +101,17 @@ form button {
     main {
         margin-top: 50px;
     }
+
+    form {
+        gap: 0px;
+    }
+
+    form input {
+        margin-top: 25px;
+    }
+
+    form button {
+        margin-top: 25px;
+    }
 }
 </style>
