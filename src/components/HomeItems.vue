@@ -80,7 +80,8 @@ button {
         margin-top: 15px;
         display: flex;
         flex-direction: column;
-
+        margin-top: 20px;
     }
+
 }
 </style>
