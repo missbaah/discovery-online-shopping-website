@@ -60,7 +60,7 @@ button {
 
 @media only screen and (max-width: 768px) {
     main {
-        gap: 35px;
+        gap: 20px;
         padding: 20px;
     }
 
@@ -77,9 +77,14 @@ button {
     }
 
     .div-buttons {
-        margin-top: 15px;
+        margin-top: 0px;
         display: flex;
         flex-direction: column;
+        gap: 0px;
+
+    }
+
+    button {
         margin-top: 20px;
     }
 
