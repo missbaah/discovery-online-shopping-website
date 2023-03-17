@@ -73,9 +73,9 @@ main {
 
 
 img {
-    width: 300px;
-    height: 300px;
-    margin: 0px 1%;
+    width: 250px;
+    margin: 0px auto;
+
 }
 
 h2 {
@@ -94,6 +94,7 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    justify-content: center;
     gap: 30px;
 }
 

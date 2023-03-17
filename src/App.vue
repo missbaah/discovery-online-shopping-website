@@ -60,6 +60,7 @@ const handleLogout = () => {
     display: none;
   }
 
+
   .nav-link:active {
     border-bottom: 5px solid greenyellow;
     margin-bottom: 0px;
@@ -90,7 +91,11 @@ const handleLogout = () => {
 
   nav a {
     text-decoration: none;
-    color: black;
+    color: #fd5b5b;
+  }
+
+  span {
+    color: #fd5b5b;
   }
 }
 
@@ -109,7 +114,7 @@ const handleLogout = () => {
   }
 
   nav .logo {
-    color: #000000;
+    color: #fd5b5b;
     font-size: 16px;
 
   }
@@ -121,7 +126,7 @@ const handleLogout = () => {
 
   nav a {
     text-decoration: none;
-    color: black;
+    color: #fd5b5b;
   }
 
   .drop-down-content {
@@ -145,6 +150,7 @@ const handleLogout = () => {
     border: none;
     font-size: 14px;
     padding: 0px 15px;
+    color: #fd5b5b;
   }
 
 
